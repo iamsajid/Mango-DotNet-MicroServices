@@ -4,7 +4,6 @@ using Mango.Web.Utility;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Newtonsoft.Json;
 using System.IdentityModel.Tokens.Jwt;
@@ -46,8 +45,7 @@ namespace Mango.Web.Controllers
             }
             else
             {
-                TempData["error"] = response.Message;
-                ////ModelState.AddModelError("CustomError", response.Message);
+                TempData["error"] = response?.Message;
                 return View(model);
             }
         }
